@@ -18,6 +18,7 @@ func main() {
 }
 
 func request() {
+	start := time.Now()
 	c := http.Client{Timeout: time.Duration(1) * time.Second}
 	resp, err := c.Get("http://107.150.126.50:8080/getTimes?uid=3378735268594028615&sid=6001")
 	if err != nil {
@@ -28,5 +29,7 @@ func request() {
 	if err != nil {
 		log.Panicf("io read Error %s", err)
 	}
-	fmt.Print(string(body))
+	elapsed := time.Since(start)
+	fmt.Printf("response: %s, elapsed: %s", string(body), elapsed)
+
 }
