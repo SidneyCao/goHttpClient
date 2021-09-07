@@ -30,6 +30,6 @@ func request() {
 		log.Panicf("io read Error %s", err)
 	}
 	elapsed := time.Since(start)
-	fmt.Printf("response: %s, elapsed: %s", string(body), elapsed)
+	fmt.Printf("response: %s, elapsed: %s\n", string(body), elapsed)
 
 }
